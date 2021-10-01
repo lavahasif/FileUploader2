@@ -1,0 +1,75 @@
+﻿@model IEnumerable<String>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+@{
+    <div class="row">
+
+        @{
+            foreach (var VARIABLE in Model)
+            {
+                var replace = VARIABLE.Replace(@"upload\", "");
+                var url = "~/im/" + replace;
+                        @*         <h2 > @replace </h2 > *@
+                <div class="col-6 m-5" >
+                    @{
+                        if (replace.Contains(".mp4") || replace.Contains(".3gp") || replace.Contains(".avi"))
+                        {
+                            <center>
+                                <a href="@Url.Content(@url)">
+
+                                    <video style="max-height: 250px;max-width: 250px;min-height: auto;min-width: auto" width="auto" height="auto" id="Image2" src="@Url.Content(@url)"/>
+                                    <h6>@replace</h6>
+
+                                </a>
+                            </center>
+                        }
+                        else if (replace.Contains(".pdf"))
+                        {
+                            <center>
+                                <a href="@Url.Content(@url)">
+
+                                    <embed type="application/pdf" style="max-height: 250px;max-width: 250px;min-height: auto;min-width: auto" width="auto" height="auto" id="Image2" src="@Url.Content(@url)"/>
+                                    <h6>@replace</h6>
+
+                                </a>
+                            </center>
+                        }
+                        else if (replace.Contains(".mp3") || replace.Contains(".ogg"))
+                        {
+                            <center>
+                                <a href="@Url.Content(@url)">
+
+                                    <audio style="max-height: 250px;max-width: 250px;min-height: auto;min-width: auto" width="auto" height="auto" id="Image2" src="@Url.Content(@url)"/>
+                                    <h6>@replace</h6>
+
+                                </a>
+                            </center>
+                        }
+
+                        else
+                        {
+                            <center >
+                                <a href="@Url.Content(@url)">
+
+                                    <img style="max-height: 250px;max-width: 250px;min-height: auto;min-width: auto"
+                                         width="auto"
+                                         height="auto"
+                                         id="Image2"
+                                         src="@Url.Content(@url)"/>
+                                    <h6 > @replace </h6 >
+                                </a >
+                            </center>
+                        }
+                    }
+                </div>
+            }
+
+        }
+    </div>
+
+
+
+}
