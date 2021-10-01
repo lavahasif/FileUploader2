@@ -1,0 +1,17 @@
+﻿@model System.Collections.Generic.IEnumerable<string>
+@foreach (var VARIABLE in Model)
+{
+    var replace = VARIABLE.Replace(@"upload/", "");
+    var url = "~/im/" + replace;
+    <center >
+        <a href="@Url.Content(@url)">
+
+            <p style="max-height: 250px;max-width: 250px;min-height: auto;min-width: auto"
+                 width="auto"
+                 height="auto"
+                 id="Image2"
+                 src="@Url.Content(@url)"/>
+            <h6 > @replace </h6 >
+        </a >
+    </center>
+}

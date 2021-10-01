@@ -1,0 +1,157 @@
+﻿@*<form asp-controller="Home" asp-action="UploadFile" method="post"
+      enctype="multipart/form-data">
+
+    <input type="file" name="file" />
+    <button type="submit">Upload File</button>
+</form>
+
+<form asp-controller="Home" asp-action="UploadFiles" method="post"
+      enctype="multipart/form-data">
+
+    <input type="file" name="files" multiple />
+    <button type="submit">Upload Files</button>
+</form>
+
+<form asp-controller="Home" asp-action="UploadFileViaModel" method="post"
+      enctype="multipart/form-data">
+
+    <input type="file" name="FileToUpload" />
+    <button type="submit">Upload File (model)</button>
+</form>*@
+
+<script type="text/javascript">
+
+function clear2(){
+    
+document.getElementById("textarea2").innerText="";
+document.getElementById("textarea2").value="";
+}
+
+
+
+function clear3(){
+    
+document.getElementById("textarea").innerText="";
+document.getElementById("textarea").value="";
+}
+
+</script>
+
+<div class="row">
+    <div class="col">
+        <form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="Index2">
+            <div class="form-group">
+                <div class="col-md-10">
+                    <p>Upload one or more files using this form:</p>
+                    <input type="file" id="files" name="files" multiple/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input type="submit" value="Upload"/>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="col">
+        <p>Push Message</p>
+        <div class="signalr-demo">
+            <form id="message-form">
+                <input type="text" id="message-box"/>
+            </form>
+            <hr/>
+            <ul id="messages"></ul>
+        </div>
+    </div>
+</div>
+<form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="Savetext">
+    <div class="form-group">
+        <div class="col-md-10">
+            <p>Save string</p>
+            <textarea class="form-control" name="textarea" id="textarea" rows="3" value="@ViewData["url"]">@ViewData["url"]</textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-10">
+            <input type="submit" value="save"/>
+        </div>
+    </div>
+
+</form>
+@* @using (Html.BeginForm("clear", "Home", FormMethod.Post)) *@
+@* { *@
+@*   *@
+<div class="form-group">
+    <div class="col-md-10">
+        <input type="submit" onclick="clear3()" id="cl" class="btn btn-primary" value="Clear"/>
+    </div>
+</div>
+@* } *@
+<form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="Savetext2">
+    <div class="form-group">
+        <div class="col-md-10">
+            <p>Save string</p>
+            <textarea class="form-control" name="textarea2"  id="textarea2" rows="3" value="@ViewData["url2"]">@ViewData["url2"]</textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-10">
+            <input type="submit" value="save"/>
+        </div>
+    </div>
+
+</form>
+@* @using (Html.BeginForm("clear2", "Home", FormMethod.Post)) *@
+@* { *@
+<div class="form-group">
+    <div class="col-md-10">
+        <input type="submit" onclick="clear2()" class="btn btn-primary" value="Clear"/>
+    </div>
+</div>
+
+<center>
+    <a href="/Files">
+        <button class="btn btn-primary">Show Uploads</button>
+    </a>
+</center>
+
+
+<script src="https://unpkg.com/@@aspnet/signalr@@1.0.0-rc1-final/dist/browser/signalr.js"></script>
+
+<script type="text/javascript">
+    const messageForm =  document.getElementById('message-form');
+    const messageBox = document.getElementById('message-box');
+    const messages = document.getElementById('messages');
+    
+    const connection = new signalR.HubConnectionBuilder()
+        .withUrl("/chat")
+        .configureLogging(signalR.LogLevel.Information)
+        .build();
+        
+    connection.on('newMessage', (sender, messageText) => {
+        console.log(`${sender}:${messageText}`);
+        
+        const newMessage = document.createElement('li');
+        newMessage.appendChild(document.createTextNode(`${sender}:${messageText}`));
+        messages.appendChild(newMessage);
+    }); 
+    connection.on('newMessage2', (sender, messageText) => {
+        console.log(`${sender}:${messageText}`);
+        
+        const newMessage = document.createElement('li');
+        newMessage.appendChild(document.createTextNode(`${sender}:${messageText}`));
+        messages.appendChild(newMessage);
+    });
+    
+    connection.start()
+        .then(() => console.log('connected!'))
+        .catch(console.error);
+        
+    messageForm.addEventListener('submit', ev => {
+        ev.preventDefault();
+        const message = messageBox.value;
+        connection.invoke('SendMessage', message);
+        messageBox.value = '';
+    });
+</script>
