@@ -134,6 +134,10 @@ document.getElementById("textarea").value="";
         
         const newMessage = document.createElement('li');
         newMessage.appendChild(document.createTextNode(`${sender}:${messageText}`));
+         
+          let htmlElement = newMessage.appendChild(document.createElement('Button'));
+                 htmlElement.click=myFunction(messageText)
+                 htmlElement.innerText="Copy text";
         messages.appendChild(newMessage);
     }); 
     connection.on('newMessage2', (sender, messageText) => {
@@ -141,6 +145,9 @@ document.getElementById("textarea").value="";
         
         const newMessage = document.createElement('li');
         newMessage.appendChild(document.createTextNode(`${sender}:${messageText}`));
+        let htmlElement = newMessage.appendChild(document.createElement('Button'));
+        htmlElement.click=myFunction(messageText);
+        htmlElement.innerText="Copy text";
         messages.appendChild(newMessage);
     });
     
@@ -154,4 +161,12 @@ document.getElementById("textarea").value="";
         connection.invoke('SendMessage', message);
         messageBox.value = '';
     });
+    
+    function myFunction(value) {
+
+      navigator.clipboard.writeText(value);
+    
+      /* Alert the copied text */
+      // alert("Copied the text: " + value);
+    }
 </script>
