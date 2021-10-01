@@ -13,8 +13,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d576881c-c42c-4735-ad3f-65057389bd35" name="Default Changelist" comment="aspcoreadded">
+    <list default="true" id="d576881c-c42c-4735-ad3f-65057389bd35" name="Default Changelist" comment="up">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FileUploader2/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FileUploader2/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FileUploader2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FileUploader2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileUploader2/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/Views/Home/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/FileUploader2.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/FileUploader2.Views.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/FileUploader2.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/FileUploader2.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/FileUploader2.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/FileUploader2.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/FileUploader2.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/FileUploader2.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index.cshtml.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileUploader2/obj/FileUploader2.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/obj/FileUploader2.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileUploader2/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileUploader2/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileUploader2/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,15 +33,16 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/FileUploader2" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/FileUploader2/Startup.cs" />
       <option value="$PROJECT_DIR$/FileUploader2/Controllers/HomeController.cs" />
       <option value="$PROJECT_DIR$/FileUploader2/Controllers/ApiUploadController.cs" />
-      <option value="$PROJECT_DIR$/FileUploader2/Views/Home/Index.cshtml" />
       <option value="$PROJECT_DIR$/FileUploader2/hub/Chat.cs" />
+      <option value="$PROJECT_DIR$/FileUploader2/.gitignore" />
+      <option value="$PROJECT_DIR$/FileUploader2/Views/Home/Index.cshtml" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1iEMa3MdcW2WJcI20eShJ0Bsf8x" />
@@ -45,10 +57,10 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="Publish to folder.Publish FileUploader3">
+  <component name="RunManager" selected=".NET Launch Settings Profile.FileUploader2: IIS Express">
     <configuration name="Publish FileUploader2 to folder" type="DotNetFolderPublish" factoryName="Publish to folder" temporary="true">
       <riderPublish runtime="win-x64" self_contained="true" target_folder="D:\upload" target_framework="netcoreapp3.1" uuid_high="-5735842458494941105" uuid_low="-7916940119118001598" />
       <method v="2" />
@@ -132,7 +144,7 @@
       <workItem from="1603391097693" duration="589000" />
       <workItem from="1603418117491" duration="1051000" />
       <workItem from="1603554414178" duration="1516000" />
-      <workItem from="1632980125924" duration="18605000" />
+      <workItem from="1632980125924" duration="22132000" />
     </task>
     <task id="LOCAL-00001" summary="show and download added">
       <created>1601502423698</created>
@@ -162,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633124646975</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="up">
+      <created>1633124837213</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1633124837213</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,7 +207,8 @@
     <MESSAGE value="text sharing also added" />
     <MESSAGE value="filelist added fast loading" />
     <MESSAGE value="aspcoreadded" />
-    <option name="LAST_COMMIT_MESSAGE" value="aspcoreadded" />
+    <MESSAGE value="up" />
+    <option name="LAST_COMMIT_MESSAGE" value="up" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
