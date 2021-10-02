@@ -1,0 +1,142 @@
+﻿@*<form asp-controller="Home" asp-action="UploadFile" method="post"
+      enctype="multipart/form-data">
+
+    <input type="file" name="file" />
+    <button type="submit">Upload File</button>
+</form>
+
+<form asp-controller="Home" asp-action="UploadFiles" method="post"
+      enctype="multipart/form-data">
+
+    <input type="file" name="files" multiple />
+    <button type="submit">Upload Files</button>
+</form>
+
+<form asp-controller="Home" asp-action="UploadFileViaModel" method="post"
+      enctype="multipart/form-data">
+
+    <input type="file" name="FileToUpload" />
+    <button type="submit">Upload File (model)</button>
+</form>*@
+
+<script src="https://unpkg.com/@@aspnet/signalr@@1.0.0-rc1-final/dist/browser/signalr.js"></script>
+<div class="row">
+    <div class="col">
+        <p>Push Message</p>
+        <div class="signalr-demo">
+            <form id="message-form">
+                <input type="text" class="form-control" id="message-box"/>
+            </form>
+            <hr/>
+            <ul id="messages"></ul>
+        </div>
+    </div>
+</div>
+@* <div class="row"> *@
+@* *@
+@*     <div class="col"></div> *@
+@*     <div class="col"> <button onclick="copyToClp(messageText)"></button></div> *@
+@* </div> *@
+@* </li> *@
+
+
+<script type="text/javascript">
+
+
+    const messageForm =  document.getElementById('message-form');
+    const messageBox = document.getElementById('message-box');
+    const messages = document.getElementById('messages');
+    
+    const connection = new signalR.HubConnectionBuilder()
+        .withUrl("/chat")
+        .configureLogging(signalR.LogLevel.Information)
+        .build();
+        function parseHTML(html) {
+            var t = document.createElement('template');
+            t.innerHTML = html;
+            return t.content;
+        }
+    function extracted(messageText){
+                        var li= document.createElement('li')
+                        var divrow= document.createElement('div')
+                        var divcol1= document.createElement('div')
+                        var divcol2= document.createElement('div')
+                        var button= document.createElement('button')
+                        button.onclick=function (){copyToClp(messageText)}
+                        button.value="Copy"
+                        button.innerText="Copy"
+                        button.className="btn btn-primary btn-large"
+                        divcol2.className="col mx-5 my-2";
+                        divcol1.className="col  mx-5 my-2";
+                        divcol1.innerText=messageText;
+                        divrow.className="row m-2";
+                        divcol2.appendChild(button)
+                        divrow.appendChild(divcol1)
+                        divrow.appendChild(divcol2)
+                        li.appendChild(divrow)
+return li;
+} connection.on('newMessage', (sender, messageText) => {var li = extracted(messageText);
+        
+
+
+        console.log(`${sender}:${messageText}`);
+     
+                messages.appendChild(li);
+    }); 
+    connection.on('newMessage2', (sender, messageText) => {
+        console.log(`${sender}:${messageText}`);
+        
+       var li = extracted(messageText);
+               
+       
+       
+               console.log(`${sender}:${messageText}`);
+            
+                       messages.appendChild(li);
+    });
+    
+    connection.start()
+        .then(() => console.log('connected!'))
+        .catch(console.error);
+        
+    messageForm.addEventListener('submit', ev => {
+        ev.preventDefault();
+        const message = messageBox.value;
+        connection.invoke('SendMessage', message);
+        messageBox.value = '';
+    });
+    
+    function myFunction(value) {
+
+      navigator.clipboard.writeText(value);
+    
+      /* Alert the copied text */
+      // alert("Copied the text: " + value);
+    }
+    
+    
+    function copyToClp(txt){
+        var m = document;
+        txt = m.createTextNode(txt);
+        var w = window;
+        var b = m.body;
+        b.appendChild(txt);
+        if (b.createTextRange) {
+            var d = b.createTextRange();
+            d.moveToElementText(txt);
+            d.select();
+            m.execCommand('copy');
+        }
+        else {
+            var d = m.createRange();
+            var g = w.getSelection;
+            d.selectNodeContents(txt);
+            g().removeAllRanges();
+            g().addRange(d);
+            m.execCommand('copy');
+            g().removeAllRanges();
+        }
+        txt.remove();
+    }
+
+</script>

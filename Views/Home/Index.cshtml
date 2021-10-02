@@ -54,16 +54,18 @@ document.getElementById("textarea").value="";
         </form>
     </div>
 
+
     <div class="col">
         <p>Push Message</p>
         <div class="signalr-demo">
             <form id="message-form">
-                <input type="text" id="message-box"/>
+                <input type="text" class="form-control" id="message-box"/>
             </form>
             <hr/>
             <ul id="messages"></ul>
         </div>
     </div>
+
 </div>
 <form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="Savetext">
     <div class="form-group">
@@ -102,8 +104,7 @@ document.getElementById("textarea").value="";
     </div>
 
 </form>
-@* @using (Html.BeginForm("clear2", "Home", FormMethod.Post)) *@
-@* { *@
+
 <div class="form-group">
     <div class="col-md-10">
         <input type="submit" onclick="clear2()" class="btn btn-primary" value="Clear"/>
@@ -120,6 +121,29 @@ document.getElementById("textarea").value="";
 <script src="https://unpkg.com/@@aspnet/signalr@@1.0.0-rc1-final/dist/browser/signalr.js"></script>
 
 <script type="text/javascript">
+   function copyToClp(txt){
+        var m = document;
+        txt = m.createTextNode(txt);
+        var w = window;
+        var b = m.body;
+        b.appendChild(txt);
+        if (b.createTextRange) {
+            var d = b.createTextRange();
+            d.moveToElementText(txt);
+            d.select();
+            m.execCommand('copy');
+        }
+        else {
+            var d = m.createRange();
+            var g = w.getSelection;
+            d.selectNodeContents(txt);
+            g().removeAllRanges();
+            g().addRange(d);
+            m.execCommand('copy');
+            g().removeAllRanges();
+        }
+        txt.remove();
+    }
     const messageForm =  document.getElementById('message-form');
     const messageBox = document.getElementById('message-box');
     const messages = document.getElementById('messages');
@@ -128,27 +152,46 @@ document.getElementById("textarea").value="";
         .withUrl("/chat")
         .configureLogging(signalR.LogLevel.Information)
         .build();
-        
+         function extracteds(messageText){
+                                var li= document.createElement('li')
+                                var divrow= document.createElement('div')
+                                var divcol1= document.createElement('div')
+                                var divcol2= document.createElement('div')
+                                var button= document.createElement('button')
+                                button.onclick=function (){copyToClp(messageText)}
+                                button.value="Copy"
+                                button.innerText="Copy"
+                                button.className="btn btn-primary btn-large"
+                                divcol2.className="col mx-5 my-2";
+                                divcol1.className="col  mx-5 my-2";
+                                divcol1.innerText=messageText;
+                                divrow.className="row m-2";
+                                divcol2.appendChild(button)
+                                divrow.appendChild(divcol1)
+                                divrow.appendChild(divcol2)
+                                li.appendChild(divrow)
+        return li;
+        } 
     connection.on('newMessage', (sender, messageText) => {
-        console.log(`${sender}:${messageText}`);
         
-        const newMessage = document.createElement('li');
-        newMessage.appendChild(document.createTextNode(`${sender}:${messageText}`));
-         
-          let htmlElement = newMessage.appendChild(document.createElement('Button'));
-                 htmlElement.click=myFunction(messageText)
-                 htmlElement.innerText="Copy text";
-        messages.appendChild(newMessage);
+        
+       var li = extracteds(messageText);
+               
+       
+       
+               console.log(`${sender}:${messageText}`);
+            
+                       messages.appendChild(li);
     }); 
+    
     connection.on('newMessage2', (sender, messageText) => {
-        console.log(`${sender}:${messageText}`);
+        var li = extracteds(messageText);
+                
         
-        const newMessage = document.createElement('li');
-        newMessage.appendChild(document.createTextNode(`${sender}:${messageText}`));
-        let htmlElement = newMessage.appendChild(document.createElement('Button'));
-        htmlElement.click=myFunction(messageText);
-        htmlElement.innerText="Copy text";
-        messages.appendChild(newMessage);
+        
+                console.log(`${sender}:${messageText}`);
+             
+                        messages.appendChild(li);
     });
     
     connection.start()

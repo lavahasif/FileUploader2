@@ -31,6 +31,7 @@ namespace FileUploader2.Controllers
 
         //    return RedirectToAction("Files");
         //}
+        // [DisableRequestSizeLimit]
         [HttpPost("FileUpload")]
         // [DisableRequestSizeLimit]
         [RequestFormLimits(MultipartBodyLengthLimit = 30009715200)]
@@ -174,7 +175,8 @@ namespace FileUploader2.Controllers
             // WriteToFile(data);
             return RedirectToAction("Index", "Home");
         }
-   [HttpPost]
+
+        [HttpPost]
         public IActionResult Clear2()
         {
             var dd = ViewData["url2"];
