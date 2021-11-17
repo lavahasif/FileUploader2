@@ -14,32 +14,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d576881c-c42c-4735-ad3f-65057389bd35" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/FileUploader2/Controllers/SignalController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FileUploader2/Views/Signal/Index.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FileUploader2/Views/Signal/Privacy.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FileUploader2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FileUploader2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileUploader2/Controllers/ApiUploadController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/Controllers/ApiUploadController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileUploader2/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileUploader2/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/Views/Home/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileUploader2/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/Views/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/FileUploader2.RazorCoreGenerate.cache" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/FileUploader2.RazorCoreGenerate.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/FileUploader2.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/FileUploader2.Views.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/FileUploader2.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/FileUploader2.Views.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/FileUploader2.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/FileUploader2.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/FileUploader2.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/FileUploader2.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/FileUploader2.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/FileUploader2.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/FileUploader2.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/FileUploader2.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index.cshtml.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_Layout.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_Layout.cshtml.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/win-x64/FileUploader2.RazorCoreGenerate.cache" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/win-x64/FileUploader2.RazorCoreGenerate.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/win-x64/FileUploader2.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/win-x64/FileUploader2.Views.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/win-x64/FileUploader2.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/win-x64/FileUploader2.Views.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/win-x64/FileUploader2.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/win-x64/FileUploader2.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/win-x64/FileUploader2.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/win-x64/FileUploader2.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/win-x64/FileUploader2.dll" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/win-x64/FileUploader2.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/win-x64/FileUploader2.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/win-x64/FileUploader2.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/win-x64/Razor/Views/Home/Index.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/win-x64/Razor/Views/Home/Index.cshtml.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/win-x64/Razor/Views/Shared/_Layout.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/win-x64/Razor/Views/Shared/_Layout.cshtml.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/FileUploader2.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/obj/Debug/netcoreapp3.1/FileUploader2.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileUploader2/obj/FileUploader2.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/obj/FileUploader2.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileUploader2/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileUploader2/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/obj/project.nuget.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FileUploader2/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/FileUploader2/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,6 +28,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/FileUploader2" />
+    <option name="ROOT_SYNC" value="SYNC" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -76,7 +56,6 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="editing.templates" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -165,7 +144,8 @@
       <workItem from="1603418117491" duration="1051000" />
       <workItem from="1603554414178" duration="1516000" />
       <workItem from="1632980125924" duration="23111000" />
-      <workItem from="1633175913897" duration="11452000" />
+      <workItem from="1633175913897" duration="12191000" />
+      <workItem from="1637163899410" duration="642000" />
     </task>
     <task id="LOCAL-00001" summary="show and download added">
       <created>1601502423698</created>
@@ -216,12 +196,20 @@
       <option name="project" value="LOCAL" />
       <updated>1633129444367</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="updated problem">
+      <created>1633193471487</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1633193471487</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
@@ -245,7 +233,8 @@
     <MESSAGE value="up" />
     <MESSAGE value="upsd" />
     <MESSAGE value="sdf" />
-    <option name="LAST_COMMIT_MESSAGE" value="sdf" />
+    <MESSAGE value="updated problem" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated problem" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
