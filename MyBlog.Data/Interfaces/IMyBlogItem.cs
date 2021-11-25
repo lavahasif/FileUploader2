@@ -2,6 +2,7 @@
 {
     public interface IMyBlogItem
     {
-        
+        public int Id { get; set; }
+
     }
 }

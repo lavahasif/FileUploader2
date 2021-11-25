@@ -1,0 +1,24 @@
+﻿@page "/met"
+@page "/met/{url}"
+@using sp=Syncfusion.Blazor.PdfViewer
+@using BlazorPdflist.Data
+@inject WeatherForecastService ForecastService
+
+<h1>Pdf View</h1><h6>
+    @url
+</h6>
+@*<div class="container is-fluid"">*@
+<object data="mypdf.pdf" type="application/pdf" frameborder="0" width="100%" height="600px" style="padding: 20px;">
+    <embed src="@(String.Concat("/pdf/",@url,".pdf"))" width="100%" height="1000px">
+</object>
+
+@*</div>*@
+@code {
+    [Parameter]
+    public string url { get; set; }
+
+    //public string myurl { get; set; } = url + ".pdf";
+
+    //private string DocumentPath { get; set; } = String.Concat("/pdf/",url,".pdf");
+}
+@*<SfPdfViewerServer DocumentPath="@(String.Concat("/pdf/",@url,".pdf"))"  Height="500px" Width="1060px" ></SfPdfViewerServer>*@

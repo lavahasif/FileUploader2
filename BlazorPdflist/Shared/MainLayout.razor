@@ -1,0 +1,87 @@
+@using  Blazorise
+@inherits LayoutComponentBase
+
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <div class="main">
+        <div class="top-row px-4 py-md-5">
+
+            <div style="width: 45px ;height: 45px;align-content: center;align-items: center;align-self: center">
+                <ColorPicker ColorChanged="color => OnThemeColorChanged(color)" />
+
+            </div>
+
+
+            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+        </div>
+
+        <div class="content px-4">
+            @Body
+        </div>
+    </div>
+</div>
+
+    @* <Layout> *@
+    @*     <LayoutHeader Fixed="true"> *@
+    @*         <div style="width: 45px ;height: 45px;align-content: center;align-items: center;align-self: center"> *@
+    @*             <ColorPicker ColorChanged="color => OnThemeColorChanged(color)"/> *@
+    @* *@
+    @*         </div> *@
+    @*     </LayoutHeader> *@
+    @*     <Layout Sider="true"> *@
+    @*         <LayoutSider> *@
+    @*             <LayoutSiderContent> *@
+    @*                 <NavMenu/> *@
+    @*             </LayoutSiderContent> *@
+    @*         </LayoutSider> *@
+    @*         <Layout> *@
+    @*             <LayoutContent> *@
+    @*                 @Body *@
+    @*             </LayoutContent> *@
+    @*         </Layout> *@
+    @*     </Layout> *@
+    @* </Layout> *@
+
+
+    @* <Layout Sider="true"> *@
+    @*     <LayoutSider> *@
+    @*         <LayoutSiderContent> *@
+    @*             <NavMenu/> *@
+    @*         </LayoutSiderContent> *@
+    @*     </LayoutSider> *@
+    @*     <Layout> *@
+    @*         <LayoutHeader Style="align-items: end" Fixed="true"> *@
+    @*             <div style="width: 45px ;height: 45px;align-content: center;align-items: center;align-self: center"> *@
+    @*                 <ColorPicker ColorChanged="color => OnThemeColorChanged(color)"/> *@
+    @* *@
+    @*             </div> *@
+    @*         </LayoutHeader> *@
+    @*         <LayoutContent> *@
+    @*             @Body *@
+    @*         </LayoutContent> *@
+    @*     </Layout> *@
+    @* </Layout> *@
+
+    @code {
+
+    Task OnThemeColorChanged(string value)
+    {
+        if (Theme?.ColorOptions != null)
+            Theme.ColorOptions.Primary = value;
+
+        if (Theme?.BackgroundOptions != null)
+            Theme.BackgroundOptions.Primary = value;
+
+        Theme.ThemeHasChanged();
+
+        return Task.CompletedTask;
+    }
+
+    [CascadingParameter]
+    Theme Theme { get; set; }
+
+    }
+

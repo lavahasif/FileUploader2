@@ -1,0 +1,14 @@
+D:\Mywork\myecommercehelper\FileUploader2-master\FileUploader2-master\MyBlog.Data\bin\Release\net6.0\MyBlog.Data.deps.json
+D:\Mywork\myecommercehelper\FileUploader2-master\FileUploader2-master\MyBlog.Data\bin\Release\net6.0\MyBlog.Data.runtimeconfig.json
+D:\Mywork\myecommercehelper\FileUploader2-master\FileUploader2-master\MyBlog.Data\bin\Release\net6.0\MyBlog.Data.dll
+D:\Mywork\myecommercehelper\FileUploader2-master\FileUploader2-master\MyBlog.Data\bin\Release\net6.0\ref\MyBlog.Data.dll
+D:\Mywork\myecommercehelper\FileUploader2-master\FileUploader2-master\MyBlog.Data\bin\Release\net6.0\MyBlog.Data.pdb
+D:\Mywork\myecommercehelper\FileUploader2-master\FileUploader2-master\MyBlog.Data\obj\Release\net6.0\MyBlog.Data.csproj.AssemblyReference.cache
+D:\Mywork\myecommercehelper\FileUploader2-master\FileUploader2-master\MyBlog.Data\obj\Release\net6.0\MyBlog.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\Mywork\myecommercehelper\FileUploader2-master\FileUploader2-master\MyBlog.Data\obj\Release\net6.0\MyBlog.Data.AssemblyInfoInputs.cache
+D:\Mywork\myecommercehelper\FileUploader2-master\FileUploader2-master\MyBlog.Data\obj\Release\net6.0\MyBlog.Data.AssemblyInfo.cs
+D:\Mywork\myecommercehelper\FileUploader2-master\FileUploader2-master\MyBlog.Data\obj\Release\net6.0\MyBlog.Data.csproj.CoreCompileInputs.cache
+D:\Mywork\myecommercehelper\FileUploader2-master\FileUploader2-master\MyBlog.Data\obj\Release\net6.0\MyBlog.Data.dll
+D:\Mywork\myecommercehelper\FileUploader2-master\FileUploader2-master\MyBlog.Data\obj\Release\net6.0\ref\MyBlog.Data.dll
+D:\Mywork\myecommercehelper\FileUploader2-master\FileUploader2-master\MyBlog.Data\obj\Release\net6.0\MyBlog.Data.pdb
+D:\Mywork\myecommercehelper\FileUploader2-master\FileUploader2-master\MyBlog.Data\obj\Release\net6.0\MyBlog.Data.genruntimeconfig.cache

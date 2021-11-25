@@ -1,0 +1,212 @@
+@page "/counter"
+@using BlazorPdflist.Util
+@using BlazorPro.BlazorSize
+@using BlazorPdflist.Data
+@using System.Net
+@inject WeatherForecastService weatherForecastService
+@using Blazorise
+@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
+@inject ProtectedSessionStorage storage
+@inject NavigationManager UriHelper
+@inject FileService fileservice
+@using Microsoft.AspNetCore.Http
+@using Microsoft.Extensions.FileProviders;
+@using Blazorise.Components;
+
+<Div Class="card-columns is-flex is-vcentered is-justify-content-space-between">
+    <Div Class="card-columns is-two-thirds-mobile is-half-tablet">
+        <h1>Pdf List</h1>
+    </Div>    <Div Class="card-columns is-two-thirds-mobile is-half-tablet">
+        <Button @onclick="logout" Class="mr-3 my-2" Color="Color.Primary" Size="Size.Medium" style="">
+            <Icon Name="IconName.Unlock" />
+        </Button>
+    </Div>
+
+
+</Div>
+@*<Div Flex="Flex.JustifyContent.Start" Margin="Margin.Is3.FromTop" Padding="Padding.Is2.FromBottom">*@
+
+    @*<section class="hero is-success is-fullheight">*@
+    @*   <Autocomplete
+    Size="Size.Medium"
+    Style="" TItem="IFileInfo"
+    TValue="string"
+    Data="@forecasts"
+
+    TextField="((x)=> x.Name)"
+    ValueField="((x)=> x.Name)"
+    @bind-SelectedValue="@selectedSearchValue"
+    @bind-SelectedText="selectedAutoCompleteText"
+    Placeholder="Search..."
+    Filter="AutocompleteFilter.StartsWith"
+    FreeTyping
+    CustomFilter="@(( item, searchValue ) => item.Name.IndexOf( searchValue, 0, StringComparison.CurrentCultureIgnoreCase ) >= 0 )">
+    <NotFoundContent> Sorry... @context was not found! :( </NotFoundContent>
+    </Autocomplete>*@
+    @*</section>*@
+<Div Class="columns">
+
+    <Div Class=@(!IsSmall?"column is-three-quarters ":"column")>
+        <Addons Class=@(IsLarge?"my-5 mx-5":"my-5 mx-5")>
+            <Addon AddonType="AddonType.Body">
+                <TextEdit KeyPress="@OnNameChanged" @bind-Text="@searchtext" Placeholder="Enter Search" Size="Size.Medium" />
+            </Addon>
+            <Addon AddonType="AddonType.End">
+                <Button Color="Color.Danger" Size="Size.Medium" @onclick="Clear">
+
+                    <Icon Class='mh-2' Name="IconName.Clear" />
+                </Button>
+            </Addon>
+        </Addons>
+    </Div>
+
+</Div>
+@*</Div>*@
+@code {
+    async Task logout()
+    {
+        SaveUserName();
+    }
+}
+
+
+@if (forecasts == null)
+{
+    <p>
+        <em>Loading...</em>
+    </p>
+}
+else
+{
+    <Div Class="table-container">
+        <table class="table FixedHeader Resizable hoverable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Size</th>
+                    <th>Path</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var forecast in forecasts_search)
+                {
+                    <tr>
+                        <td>
+                            <div class="columns is-flex is-vcentered is-justify-content-space-between">
+
+                                <div class="flex-column m-1 is-two-thirds-mobile is-half-tablet ">
+                                    <a href="/pdf/@(Uri.EscapeUriString(forecast.Name))">@forecast.Name </a>
+                                </div>
+                                <div class="flex-column m-2 is-two-thirds-mobile is-half-tablet">
+                                    <Button @onclick="()=> showPdf(forecast.Name)"> <Icon Class='mh-2' Name="IconName.Eye" /></Button>
+                                </div>
+                            </div>
+                            @*<Link To="@forecast.Name" Title="@forecast.Name" />*@
+
+
+
+                        </td>
+                        <td>@forecast.LastModified</td>
+
+                        <td>@(FileSizeFormatter.FormatSize(forecast.Length))</td>
+                        <td>@forecast.PhysicalPath</td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </Div>
+}
+
+@*<p>This component demonstrates fetching data from a service.</p>*@
+
+
+@*
+    @if (IsSmall)
+    {
+    <h1>Small</h1>
+    }
+    else
+    {
+    <h1>Big</h1>
+    }
+
+    @if (IsMedium)
+    {
+    <span>Medium</span>
+    <h1>Mediaum</h1>
+    }*@
+
+<MediaQuery Media="@Breakpoints.OnlyMedium" @bind-Matches="IsMedium" />
+<MediaQuery Media="@Breakpoints.SmallDown" @bind-Matches="IsSmall" />
+
+@code {
+
+
+    bool IsMedium = false;
+    bool IsSmall = false;
+    bool IsLarge = false;
+    string searchtext = "";
+    private List<IFileInfo> forecasts;
+    private List<IFileInfo> forecasts_search = new List<IFileInfo>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        forecasts = fileservice.GetFileInfos();
+        forecasts_search = forecasts;
+    }
+
+
+
+
+
+    public string selectedSearchValue { get; set; }
+    public string selectedAutoCompleteText { get; set; }
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+
+        var username = await storage.GetAsync<String>("UserName");
+        if (username.Value != "admin")
+        {
+            SaveUserName();
+            UriHelper.NavigateTo("/");
+        }
+
+    }
+    private async Task SaveUserName()
+    {
+        await storage.SetAsync("UserName", "");
+    }
+
+    private void Navigateto(string name)
+    {
+        var url = Uri.EscapeUriString(name);
+        UriHelper.NavigateTo($"/{url}");
+    }
+    private void showPdf(String url)
+    {
+        var murl = $"/met/{Uri.EscapeUriString(url.Replace(".pdf", ""))}";
+        UriHelper.NavigateTo(murl);
+        @*StateHasChanged();*@
+    }
+    private void Clear()
+    {
+        searchtext = "";
+        forecasts_search = forecasts;
+    }
+    Task OnNameChanged(KeyboardEventArgs value)
+    {
+        if (searchtext != "")
+            forecasts_search = forecasts.Where(x => x.Name.ToLower().Contains(searchtext.ToLower())).ToList();
+        else
+            Clear();
+
+    return Task.CompletedTask;
+    }
+
+}
+
+<MediaQuery Media="@Breakpoints.OnlyMedium" @bind-Matches="IsMedium" />
+<MediaQuery Media="@Breakpoints.SmallDown" @bind-Matches="IsSmall" />
+<MediaQuery Media="@Breakpoints.OnlyLarge" @bind-Matches="IsLarge" />

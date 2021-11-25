@@ -24,6 +24,15 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Files" asp-action="Index2">File List</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Signal" asp-action="Index">Chat</a>
+                    </li>
+                    @{
+                        var data=@Context.Request.Path).;
+                    }
+                       <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" href="" >Notes</a>
+                    </li>
                 </ul>
             </div>
         </div>

@@ -13,7 +13,8 @@ namespace FileUploader2.Controllers
     [Route("api/[controller]")]
     public class ApiUploadController : Controller
     {
-        // GET
+        
+        // [DisableRequestSizeLimit]
         [HttpPost("fileupload")]
         [RequestFormLimits(MultipartBodyLengthLimit = 30009715200)]
         [RequestSizeLimit(30009715200)]

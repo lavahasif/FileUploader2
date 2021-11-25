@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>D:\Mywork\myecommercehelper\FileUploader2-master\FileUploader2-master\BlazorAppAssem\Client\bin\Release\net6.0\browser-wasm\publish\</_PublishTargetUrl>
+    <History>True|2021-11-24T18:42:52.9472588Z;</History>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,143 @@
+@page "/"
+@using MyBlog.Data.Interfaces
+@using MyBlog.Data.Models
+@inject IMyBlogApi api
+@* @using MatBlazor *@
+@using Blazorise
+@using BlazorPdflist.Util
+@using BlazorPro.BlazorSize
+@using Microsoft.AspNetCore.Components
+@inject BrowserService _browserService
+@inject IJSRuntime JS
+@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
+@inject ProtectedSessionStorage storage
+@inject NavigationManager UriHelper
+
+<div class="columns is-flex is-centered" style="margin: 0">
+    <Card Style=@(IsSmall ? "width:75%;margin: 0 ;padding: 0" : IsMedium ? "width:45%;margin: 0 ;padding: 0" : "width:45%;margin: 0 ;padding: 0") Margin="Margin.Is4.OnY">
+        <div class="columns is-flex is-centered" style="margin: 0">
+            <CardImage Style=@(IsSmall ? "width:65%;height: 65%;margin: 0 ;padding: 0" : IsMedium ? "width:35%;height: 35%;margin: 0 ;padding: 0" : "width:25%;height: 25%;margin: 0 ;padding: 0") Source="images/server.png" Alt="Placeholder image">
+                @* <img src="../images/server.png"/> *@
+                <p>@height;</p>
+            </CardImage>
+        </div>
+        <p>
+
+            @{
+                JS.InvokeAsync<Int32>("window.window.innerWidth");
+            }
+        </p>
+        <CardBody>
+            <div class="columns is-flex is-centered">
+                <CardTitle Size="15">Login</CardTitle>
+            </div>
+            <Addons>
+                <Addon AddonType="AddonType.Start">
+                    <AddonLabel>
+                        <Icon Name="IconName.User" />
+                    </AddonLabel>
+                </Addon>
+                <Addon AddonType="AddonType.Body">
+                    <TextEdit @bind-Text="@username" Placeholder="Username" />
+                </Addon>
+            </Addons>
+            <Addons>
+                <Addon AddonType="AddonType.Start">
+                    <AddonLabel>
+                        <Icon Name="IconName.Lock" />
+                    </AddonLabel>
+                </Addon>
+                <Addon AddonType="AddonType.Body">
+                    <TextEdit Role="TextRole.Password" ty @bind-Text="@password" Placeholder="Password" />
+                </Addon>
+            </Addons>
+            <Div Class="my-2">
+                <Check TValue="bool" @bind-Checked="@rememberMe">Remember Me</Check>
+            </Div>
+            @code {
+            bool rememberMe;
+            }
+            <Button Color="Color.Success" @onclick="LoginClick" Block>Login</Button>
+            <div class="columns">
+                <div class="column mt-5">
+
+                    <p>UserName:Admin</p>
+                    <p>Password:997755</p>
+                </div>
+                <div class="column  ">
+                    <div class="columns is-flex is-justify-content-flex-end ">
+                        <Button @onclick="ClickedClcipboard" Class="m-3" Color="Color.Primary" Margin="Margin.Is5.FromTop" style="">
+                            <Icon Name="IconName.Paperclip" />
+                        </Button>
+                    </div>
+
+                </div>
+            </div>
+
+        </CardBody>
+    </Card>
+</div>
+
+@code
+{
+    private String username = "admin";
+    private String password = "997755";
+    private int height = 25;
+    public int Height { get; set; }
+    public int Width { get; set; }
+    public int count { get; set; } = 1;
+    bool IsMedium = false;
+    bool IsSmall = false;
+
+    async Task ClickedClcipboard()
+    {
+        username = "admin";
+        password = "997755";
+        //StateHasChanged();
+
+
+    }
+    async Task LoginClick()
+    {
+        if (@username == "admin" && @password == "997755a@")
+
+        {
+            await storage.SetAsync("UserName", @username);
+            UriHelper.NavigateTo("Counter");
+        }
+
+
+    }
+
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        await GetDimensions();
+        var username = await storage.GetAsync<String>("UserName");
+        if (username.Value == "admin")
+        {
+            UriHelper.NavigateTo("Counter");
+        }
+        count++;
+    }
+    private async Task SaveUserName()
+    {
+        await storage.SetAsync("UserName", @username);
+    }
+    async Task GetDimensions()
+    {
+        Console.WriteLine(("first"));
+        var dimension = await _browserService.GetDimensions();
+        Height = dimension.Height;
+        Width = dimension.Width;
+
+        Console.WriteLine((Height));
+        Console.WriteLine(("second"));
+    }
+
+}
+
+@* <p>Window Height: @Height</p> *@
+@* <p>Window Width: @Width</p> *@
+@* <button @onclick="GetDimensions">Get Dimensions</button> *@
+<MediaQuery Media="@Breakpoints.OnlyMedium" @bind-Matches="IsMedium" />
+<MediaQuery Media="@Breakpoints.SmallDown" @bind-Matches="IsSmall" />

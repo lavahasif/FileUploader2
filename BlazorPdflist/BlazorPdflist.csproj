@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+
+        <UseRazorSourceGenerator>false</UseRazorSourceGenerator>
+
+
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Blazorise.Bootstrap" Version="0.9.5" />
+        <PackageReference Include="Blazorise.Bulma" Version="0.9.5" />
+        <PackageReference Include="Blazorise.Components" Version="0.9.5" />
+        <PackageReference Include="Blazorise.Icons.FontAwesome" Version="0.9.5" />
+        <PackageReference Include="BlazorPro.BlazorSize" Version="6.0.0" />
+        <PackageReference Include="MatBlazor" Version="2.8.0" />
+        <PackageReference Include="Syncfusion.Blazor.PdfViewer" Version="19.3.0.55" />
+        <PackageReference Include="Syncfusion.Blazor.PdfViewerServer.Windows" Version="19.3.0.55" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\MyBlog.Data\MyBlog.Data.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="wwwroot\images\server.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <UpToDateCheckInput Remove="Pages\PdfView.razor" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Pages\PdfView.razor" />
+    </ItemGroup>
+
+</Project>
